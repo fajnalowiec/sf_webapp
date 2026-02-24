@@ -9,3 +9,11 @@
 
 controllers:
     resource: routing.controllers
+    
+welcome:
+    path: /test/welcome
+    controller: App\Controller\TestController::welcome
+    
+user_list:
+    path: /user/list
+    controller: App\Controller\UserController::list

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List of users{% endblock %}
+
+{% block body %}
+<h1>Users</h1>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Birth date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.surname }}</td>
+                <td>{{ user.birthDate|date('Y-m-d') }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Brak użytkowników w bazie</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
