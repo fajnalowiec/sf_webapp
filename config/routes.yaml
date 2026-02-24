@@ -21,3 +21,7 @@ user_list:
 log_it:
     path: /test/log_it
     controller: App\Controller\TestController::logIt
+
+error_occured:
+    path: /test/error_occured
+    controller: App\Controller\TestController::errorOccured

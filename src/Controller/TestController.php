@@ -5,6 +5,7 @@ namespace App\Controller;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use App\Service\ErrorEmailHandler;
 
 class TestController extends AbstractController
 {
@@ -30,5 +31,16 @@ class TestController extends AbstractController
         $logger->info('test::welcome invoked');
         $this->addFlash('success', 'log added');
         return $this->render('Test/log_it.html.twig', []);
+    }
+
+    public function errorOccured(ErrorEmailHandler $errorEmailHandler): Response
+    {
+        try {
+            $x = 0;
+            $y = 23 / $x;
+        } catch (\Throwable $e) {
+            $msg = $errorEmailHandler->send();
+            return new Response($msg);
+        }
     }
 }
