@@ -17,3 +17,7 @@ welcome:
 user_list:
     path: /user/list
     controller: App\Controller\UserController::list
+    
+log_it:
+    path: /test/log_it
+    controller: App\Controller\TestController::logIt
