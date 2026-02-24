@@ -24,3 +24,4 @@ services:
     App\Service\ErrorEmailHandler:
         arguments:
             $admins: ['john.doe@yahoo.com', 'barry.white@gmail.com']
+            $dateTimeService: '@App\Service\DateTimeService'
