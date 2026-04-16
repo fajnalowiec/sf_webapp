@@ -6,6 +6,7 @@ use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use App\Service\ErrorEmailHandler;
+use App\Service\MyServiceInterface;
 
 class TestController extends AbstractController
 {
@@ -43,4 +44,16 @@ class TestController extends AbstractController
             return new Response($msg);
         }
     }
+
+    /**
+     *
+     * example of using dependency inversion principle by dependency injection
+     * of abstraction instead of relying on class dependency
+     */
+
+    public function dependencyInversion(MyServiceInterface $myService)
+    {
+        return new Response($myService->hello());
+    }
+
 }
